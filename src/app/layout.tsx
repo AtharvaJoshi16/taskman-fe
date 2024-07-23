@@ -1,10 +1,10 @@
 import { Sidebar } from "@/components/custom/sidebar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import ClientProvider from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Taskman",
@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={rubik.className}>
         <ClientProvider>
-          {children}
           <Sidebar />
+          {children}
         </ClientProvider>
       </body>
     </html>
