@@ -11,31 +11,27 @@ import {
 export const navLinks = [
   {
     title: "Home",
-    icon: <Home className="text-violet-700" size={14} />,
+    icon: <Home className="text-sky-700" size={14} />,
     link: "/",
   },
   {
     title: "Epics",
-    icon: <Layers3 className="text-violet-700" size={14} />,
+    icon: <Layers3 className="text-sky-700" size={14} />,
     link: "/epics",
     subNav: [
       {
-        title: "Task 1",
+        title: "Epics list",
         link: "/epics/demo-epic-id/task-1-id",
       },
       {
-        title: "Task 2",
-        link: "/epics/demo-epic-id/task-1-id",
-      },
-      {
-        title: "Task 3",
+        title: "Create Epic",
         link: "/epics/demo-epic-id/task-1-id",
       },
     ],
   },
   {
     title: "Tasks",
-    icon: <StickyNote className="text-violet-700" size={14} />,
+    icon: <StickyNote className="text-sky-700" size={14} />,
     link: "/epics/epic-id/tasks",
     subNav: [
       {
@@ -54,19 +50,19 @@ export const navLinks = [
   },
   {
     title: "Subtasks",
-    icon: <ClipboardList className="text-violet-700" size={14} />,
+    icon: <ClipboardList className="text-sky-700" size={14} />,
     link: "/tasks/task-id/subtasks",
     subNav: [
       {
-        title: "Task 1",
+        title: "SubTask 1",
         link: "/subtasks/demo-task-id",
       },
       {
-        title: "Task 2",
+        title: "SubTask 2",
         link: "/subtasks/demo-task-id",
       },
       {
-        title: "Task 3",
+        title: "SubTask 3",
         link: "/subtasks/demo-task-id",
       },
     ],
@@ -74,7 +70,7 @@ export const navLinks = [
   {
     title: "My priorities",
     link: "/priorities",
-    icon: <Siren className="text-violet-700" size={14} />,
+    icon: <Siren className="text-sky-700" size={14} />,
   },
   {
     title: "Starred",
@@ -84,6 +80,6 @@ export const navLinks = [
   {
     title: "History",
     link: "/history",
-    icon: <History className="text-violet-700" size={14} />,
+    icon: <History className="text-sky-700" size={14} />,
   },
 ];

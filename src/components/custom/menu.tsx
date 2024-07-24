@@ -1,8 +1,8 @@
 import { navLinks } from "@/navLinks";
-import classNames from "classnames";
+import { AccordionItem } from "@radix-ui/react-accordion";
 import { useState } from "react";
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
+import { Accordion, AccordionContent, AccordionTrigger } from "../ui/accordion";
+import { MenuItem } from "./menu-item";
 
 export const Menu = () => {
   const [activeNav, setActiveNav] = useState("Home");
@@ -15,30 +15,35 @@ export const Menu = () => {
     <>
       {navLinks.map((nav) => (
         <div className="flex flex-col gap-2">
-          <Button
-            className={classNames(
-              "flex items-center justify-between font-normal hover:bg-violet-700 hover:bg-opacity-5",
-              {
-                "font-semibold text-violet-700 bg-violet-900 bg-opacity-10 hover:bg-opacity-10 hover:text-violet-700":
-                  nav.title === activeNav,
-              }
-            )}
-            variant="ghost"
-            onClick={() => handleClick(nav.title)}
-          >
-            <div className="flex items-center gap-3">
-              {nav.icon}
-              {nav.title}
-            </div>
-            {["Epics", "Tasks", "Subtasks", "Starred"].includes(nav.title) && (
-              <Badge
-                className="h-5 w-5 p-1 text-[10px] flex items-center  justify-center bg-violet-300 text-violet-900 rounded-full pointer-events-none"
-                variant="secondary"
-              >
-                {5}
-              </Badge>
-            )}
-          </Button>
+          {!!nav.subNav?.length ? (
+            <Accordion type="single" collapsible className="w-full gap-2">
+              <AccordionItem value={nav.title}>
+                <AccordionTrigger className="p-1">
+                  <MenuItem
+                    nav={nav}
+                    activeNav={activeNav}
+                    onClick={() => handleClick(nav.title)}
+                  />
+                </AccordionTrigger>
+                {nav.subNav?.map((subnav) => (
+                  <AccordionContent className="gap-2">
+                    <MenuItem
+                      className="px-[30px]"
+                      activeNav={activeNav}
+                      onClick={() => handleClick(subnav.title)}
+                      nav={subnav}
+                    />
+                  </AccordionContent>
+                ))}
+              </AccordionItem>
+            </Accordion>
+          ) : (
+            <MenuItem
+              nav={nav}
+              activeNav={activeNav}
+              onClick={() => handleClick(nav.title)}
+            />
+          )}
         </div>
       ))}
     </>
